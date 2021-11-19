@@ -1,21 +1,20 @@
 import React from 'react'
 import WeatherCurrentCard from './WeatherCurrentCard'
 import WeatherForecastCard from './WeatherForecastCard'
-import { SWRConfig } from 'swr'
+import { useWeather } from '../hooks/useWeather'
+import Loading from './Loading'
 
-const Weather = () => (
-  <SWRConfig
-    value={{
-      onError: (error) => { console.log("Error: ", error) },
-      onSuccess: (data) => { console.log(data) },
-      shouldRetryOnError: false,
-    }}
-  >
-    <div className="shadow-lg rounded-lg h-auto overflow-hidden w-full md:w-3/5 lg:w-1/2 m-auto mt-4 divide-y-2 divide-light-blue-400">
-      <WeatherCurrentCard />
-      <WeatherForecastCard />
+const Weather = () => {
+  const { currentWeather, forecastWeather, isLoading, isError } = useWeather('weather')
+
+  if (isLoading || isError) return <Loading />
+
+  return (
+    <div className="border-r border-gray-500 p-3 h-auto overflow-hidden w-full divide-y-2 divide-gray-400">
+      <WeatherCurrentCard weather={currentWeather} />
+      <WeatherForecastCard weather={forecastWeather} />
     </div>
-  </SWRConfig>
-)
+  )
+}
 
 export default Weather

@@ -1,37 +1,47 @@
 import React from 'react'
 import dayjs from 'dayjs'
-import { useWeather } from '../hooks/useWeather'
-import Loading from './Loading'
 
-const WeatherForecastCard = () => {
-  const { forecast, isLoading, isError } = useWeather('forecast')
-
-  if (isLoading || isError) return <Loading />
-
+const WeatherForecastCard = ({ weather }) => {
   return (
-    <>
-      <div className="m-4">
-        <div className="">
-          {forecast.map((item, index) => {
-            return (
-              <ul className="mt-4" key={index}>
-                <li className="flex flex-row text-gray-500 dark:text-white p-1">
-                  <span className="flex-1 text-left">
-                    {item.date.format('dddd')}
-                  </span>
-                  <span className="text-indigo-700 dark:text-white text-2xl">
-                    <span className={item.forecastIcon}></span>
-                  </span>
-                  <span className="flex-1 text-right">
-                    {item.tempMax ? Math.floor(item.tempMax) + '\u00B0' : '-'} / {Math.floor(item.tempMin)}&deg;
-                  </span>
-                </li>
-              </ul>
-            )
-          })}
-        </div>
+    <div className="m-4 ">
+      <div className="mt-8">
+        {weather.map((item, index) => {
+          return (
+            <ul className="mt-6" key={index}>
+              <li className="grid grid-cols-10 text-gray-900 dark:text-white px-1 py-2">
+                <span className="col-span-6 text-left">
+                  <span className="font-bold text-xl">{item.dayName}</span>
+                  <div className="-mt-1 text text-lg text-black dark:text-gray-500 capitalize">
+                    {item.description}
+                    { !!item.rain &&
+                      <>
+                        {' '}·{' '}
+                        {' '}{item.rain}in
+                      </>
+                    }
+                    { !!item.snow &&
+                      <>
+                        {' '}·{' '}
+                        {' '}{item.snow}in
+                      </>
+                    }
+                    {' '}·{' '}
+                    {item.pop * 100}%
+                  </div>
+                </span>
+                <span className="col-span-1 mt-1 items-center text-indigo-700 dark:text-white">
+                  <span className={`${item.forecastIcon} text-4xl`}></span>
+                </span>
+                <span className="col-span-3 mt-1 flex items-top justify-end text-2xl text-right">
+                  <span className="text-black text-3xl">{Math.floor(item.tempMax)}&deg;</span>
+                  <span className="text-gray-500"> / {Math.floor(item.tempMin)}&deg;</span>
+                </span>
+              </li>
+            </ul>
+          )
+        })}
       </div>
-    </>
+    </div>
   )
 }
 
