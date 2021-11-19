@@ -1,7 +1,12 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Chart from '../components/Chart'
-import Weather from '../components/Weather'
+import { CartesianGrid, LineChart, Line, XAxis, YAxis } from 'recharts'
+
+const data = [
+  {name: 'Page A', uv: 400, pv: 2400, amt: 2400},
+  {name: 'Page B', uv: 500, pv: 3200, amt: 2200},
+  {name: 'Page C', uv: 600, pv: 1200, amt: 1200},
+]
 
 export default function Home() {
   return (
@@ -9,21 +14,22 @@ export default function Home() {
       <Head>
         <title>Dawn</title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="stylesheet preload" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" as="style" crossorigin="anonymous" />
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css"
-          rel="preconnect stylesheet"
-          as="style"
-          type="text/css"
-          async
-        />
       </Head>
 
       <header className="px-3 mb-8 flex items-center w-full border-b">
       </header>
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20">
-        <Weather />
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
+        <h1 className="text-6xl text-yellow-400 tracking-tighter">
+          test
+        </h1>
+
+        <LineChart isAnimationActive={false} width={400} height={200} data={data}>
+          <Line isAnimationActive={false} type="monotone" dataKey="uv" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+          <XAxis dataKey="name" />
+          <YAxis />
+        </LineChart>
       </main>
 
       <footer className="flex items-center justify-between w-full bg-gray-900">
@@ -34,8 +40,8 @@ export default function Home() {
           <div className="text-yellow-400 text-xl xl:text-4xl xl:font-bold">dawn</div>
         </div>
 
-        <Link href="/test">
-          Test
+        <Link href="/">
+          <a className="text-gray-300">Home</a>
         </Link>
 
         <div className="pr-3 py-3 ml-8 text-sm text-gray-300 xl:text-xl xl:pr-9">
