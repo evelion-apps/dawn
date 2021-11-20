@@ -37,11 +37,11 @@ const WeatherCurrentCard = ({ weather }) => {
             <span className={weather.weatherIcon}></span>
           </div>
         </div>
-        <div className="text-xl text-indigo-700 dark:text-gray-400 mt-10 mb-10">
+        <div className="text-xl text-indigo-700 dark:text-gray-400 mt-10 mb-8">
           <span className="wi wi-strong-wind text-2xl"></span>
           <span className="ml-1 mr-4 text-gray-900 dark:text-white tracking-wide">
             {weather.windSpeed}
-            {isMetric ? `m/s` : `mph`} winds
+            {isMetric ? `m/s` : `mph`}
           </span>
           <span className="wi wi-humidity text-2xl"></span>
           <span className="ml-2 mr-4 text-gray-900 dark:text-white tracking-wide">
@@ -65,19 +65,22 @@ const WeatherCurrentCard = ({ weather }) => {
           }
         </div>
       </div>
-      <div className="mx-6 pb-4 pt-8">
+      <div className="m-4 pb-2.5 pt-8">
         <div className="flex justify-between">
           <div className="flex flex-col items-center gap-y-1">
             <div className="wi wi-sunrise text-4xl text-indigo-700"></div>
-            <div>Sunrise {dayjs(weather.sunrise).format('h:mma')}</div>
+            <div className="-mt-1 italic">Sunrise</div>
+            <div className="-mt-2">{dayjs(weather.sunrise).format('h:mma')}</div>
           </div>
           <div className="flex flex-col items-center gap-y-1">
             <div className="wi wi-sunset text-4xl text-indigo-700"></div>
-            <div>Sunset {dayjs(weather.sunset).format('h:mma')}</div>
+            <div className="-mt-1 italic">Sunset</div>
+            <div className="-mt-2">{dayjs(weather.sunset).format('h:mma')}</div>
           </div>
           <div className="flex flex-col items-center gap-y-1">
             <div className={`wi ${moonPhaseIcon(weather.moonPhase)} text-4xl text-indigo-700`}></div>
-            <div>{moonPhaseName(weather.moonPhase)} Moon</div>
+            <div className="-mt-1 italic">Moon</div>
+            <div className="-mt-2">{moonPhaseName(weather.moonPhase)}</div>
           </div>
         </div>
       </div>

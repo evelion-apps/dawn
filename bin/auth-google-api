@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+# Usage
+#
+#     ./bin/auth-google-api
+
+node scripts/auth-google-api.mjs

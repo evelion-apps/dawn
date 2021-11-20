@@ -35,3 +35,6 @@ yarn-error.log*
 
 *.pdf
 .env.local
+priv/*.json
+captures/*.pdf
+bin/rmapi

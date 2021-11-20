@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# NOTE: Uses bash parameter expansion for TARGET to remove the `.pdf` filename
+# extension: https://stackoverflow.com/questions/19482123/extract-part-of-a-string-using-bash-cut-split
+
+ARG_1=$1
+SOURCE=${ARG_1:=captures/dawn.pdf}
+TARGET=/$(basename ${SOURCE%.*})
+
+bin/capture
+
+if $(bin/rmapi find / | grep -q $TARGET); then
+  bin/rmapi rm $TARGET
+fi
+
+bin/rmapi put $SOURCE

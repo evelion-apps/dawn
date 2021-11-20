@@ -6,14 +6,19 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lls/react-light-calendar": "^2.2.0",
     "@tailwindcss/typography": "^0.4.1",
+    "@toast-ui/react-calendar": "^1.0.5",
     "dayjs": "^1.10.7",
+    "dotenv-flow": "^3.2.0",
+    "googleapis": "^91.0.0",
     "next": "latest",
     "puppeteer": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "recharts": "^2.1.6",
-    "swr": "^1.0.1"
+    "swr": "^1.0.1",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

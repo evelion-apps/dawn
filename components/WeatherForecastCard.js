@@ -4,8 +4,8 @@ import dayjs from 'dayjs'
 const WeatherForecastCard = ({ weather }) => {
   return (
     <div className="m-4 ">
-      <div className="mt-8">
-        {weather.map((item, index) => {
+      <div className="mt-7">
+        {weather.slice(0, 7).map((item, index) => {
           return (
             <ul className="mt-6" key={index}>
               <li className="grid grid-cols-10 text-gray-900 dark:text-white px-1 py-2">

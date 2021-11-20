@@ -12,7 +12,7 @@
 ARG_1=$1
 ARG_2=$2
 
-TARGET=${ARG_1:=capture.pdf}
+TARGET=${ARG_1:=captures/dawn.pdf}
 SOURCE=${ARG_2:=http://localhost:3000}
 
 RUNNING_CHECK="$(curl $SOURCE 1> /dev/null 2> /dev/null)"

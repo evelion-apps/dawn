@@ -10,7 +10,7 @@ const Weather = () => {
   if (isLoading || isError) return <Loading />
 
   return (
-    <div className="border-r border-gray-500 p-3 h-auto overflow-hidden w-full divide-y-2 divide-gray-400">
+    <div className="p-2 h-auto overflow-hidden w-full divide-y-2 divide-gray-400">
       <WeatherCurrentCard weather={currentWeather} />
       <WeatherForecastCard weather={forecastWeather} />
     </div>
