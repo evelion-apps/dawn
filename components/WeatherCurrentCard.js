@@ -14,8 +14,8 @@ const WeatherCurrentCard = ({ weather }) => {
     <>
       <div className="m-4">
         <div className="sm">
-          <p className="text-3xl dark:text-white font-semibold">
-            Weather in {weatherLocation}
+          <p className="text-3xl dark:text-white font-semibold overflow-hidden whitespace-nowrap">
+            {weatherLocation}
           </p>
           <p className="text-black text-lg dark:text-gray-400">
             {weather.description} ·{' '}
@@ -26,7 +26,7 @@ const WeatherCurrentCard = ({ weather }) => {
               .format('h:mm A')}
           </p>
         </div>
-        <div className="flex flex-row justify-between my-8 lg:my-4 text-5xl lg:text-8xl">
+        <div className="flex flex-row justify-between my-8 lg:my-4 lg:mt-6 text-5xl lg:text-8xl">
           <span className="mt-3 text-gray-900 dark:text-white font-light">
             <span className="tracking-tight">{weather.temperature}&deg;</span>
             <span className="flex flex-col text-gray-900 dark:text-gray-400 text-2xl font-normal mt-1">

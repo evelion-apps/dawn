@@ -4,9 +4,13 @@ import dayjs from 'dayjs'
 import ChartGauge from '../components/ChartGauge'
 import Quote from '../components/Quote'
 import Notes from '../components/Notes'
+import ToDo from '../components/ToDo'
 import Schedule from '../components/Schedule'
 import Weather from '../components/Weather'
 import {useSchedule} from '../hooks/useSchedule'
+
+const DISPLAY_HEIGHT=process.env.NEXT_PUBLIC_DISPLAY_HEIGHT
+const FOOTER_HEIGHT=120
 
 function Home({ schedule }) {
   const today = dayjs()
@@ -29,13 +33,13 @@ function Home({ schedule }) {
       </Head>
 
       <main className="grid grid-cols-1 xl:grid-cols-20 w-full flex-1">
-        <div className="col-span-4 border-r border-gray-600">
+        <div className="col-span-4 border-r border-gray-600 overflow-hidden" style={{height: `calc(${DISPLAY_HEIGHT}px - ${FOOTER_HEIGHT}px)`}}>
           <Schedule schedule={schedule} />
         </div>
-        <div className="col-span-10 flex-1 bg-pattern-dots">
-          <Notes />
+        <div className="col-span-11 flex-1 overflow-hidden" style={{height: `calc(${DISPLAY_HEIGHT}px - ${FOOTER_HEIGHT}px)`}}>
+          <ToDo />
         </div>
-        <div className="col-span-6 border-l border-gray-600">
+        <div className="col-span-5 border-l border-gray-600 overflow-hidden" style={{height: `calc(${DISPLAY_HEIGHT}px - ${FOOTER_HEIGHT}px)`}}>
           <Weather />
         </div>
       </main>

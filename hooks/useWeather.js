@@ -21,7 +21,7 @@ const latitude = process.env.NEXT_PUBLIC_WEATHER_LATITUDE
 const longitude = process.env.NEXT_PUBLIC_WEATHER_LONGITUDE
 const units = process.env.NEXT_PUBLIC_WEATHER_UNITS
 
-export function useWeather(endpoint) {
+export function useWeather() {
   const queryString = `lat=${latitude}&lon=${longitude}&exclude=minutely,hourly,alerts&units=${units}&APPID=${apiKey}`
 
   const { data, error } = useSWR(

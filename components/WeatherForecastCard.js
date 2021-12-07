@@ -13,16 +13,20 @@ const WeatherForecastCard = ({ weather }) => {
                   <span className="font-bold text-xl">{item.dayName}</span>
                   <div className="-mt-1 text text-lg text-black dark:text-gray-500 capitalize">
                     {item.description}
-                    { !!item.rain &&
+                    { false && // Disabled due to width constraints
                       <>
-                        {' '}·{' '}
-                        {' '}{item.rain}in
-                      </>
-                    }
-                    { !!item.snow &&
-                      <>
-                        {' '}·{' '}
-                        {' '}{item.snow}in
+                        { !!item.rain &&
+                          <>
+                            {' '}·{' '}
+                            {' '}{item.rain}in
+                          </>
+                        }
+                        { !!item.snow &&
+                          <>
+                            {' '}·{' '}
+                            {' '}{item.snow}in
+                          </>
+                        }
                       </>
                     }
                     {' '}·{' '}
