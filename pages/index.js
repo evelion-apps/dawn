@@ -3,6 +3,7 @@ import Link from 'next/link'
 import dayjs from 'dayjs'
 import ChartGauge from '../components/ChartGauge'
 import Quote from '../components/Quote'
+import Notes from '../components/Notes'
 import Schedule from '../components/Schedule'
 import Weather from '../components/Weather'
 import {useSchedule} from '../hooks/useSchedule'
@@ -32,10 +33,7 @@ function Home({ schedule }) {
           <Schedule schedule={schedule} />
         </div>
         <div className="col-span-10 flex-1 bg-pattern-dots">
-          <div className="text-5xl pt-1 handwritten font-bold tracking-tight mt-6 ml-6 bg-shadow-white leading-none">
-            <span className="xbg-white">Notes</span>
-            <span className="xbg-white text-gray-600 font-normal"> {' '}for {' '} {today.format("dddd")}</span>
-          </div>
+          <Notes />
         </div>
         <div className="col-span-6 border-l border-gray-600">
           <Weather />
