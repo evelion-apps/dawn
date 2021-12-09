@@ -11,7 +11,7 @@ export default function ToDoItems({data: data}) {
         return (
           <div className="pt-2 flex-1 overflow-hidden" style={{maxHeight: "1200px"}}>
             { area.items[0].typeString !== 'project' &&
-              <div className="mb-2 flex bg-shadow-white border-b border-gray-500 text-2xl text-indigo-500 font-bold leading-tight">
+              <div className="mb-2 flex border-b border-gray-500 text-2xl text-indigo-500 font-bold leading-tight">
                 General
               </div>
             }
@@ -19,28 +19,28 @@ export default function ToDoItems({data: data}) {
             { area.items.map((item) => {
               if (item.typeString === 'project') {
                 return (
-                  <div className="mt-6 flex mb-2 bg-shadow-white border-b border-gray-500 text-2xl text-indigo-500 font-bold">
+                  <div className="mt-6 flex mb-2 border-b border-gray-500 text-2xl text-indigo-500 font-bold">
                     {item.title || 'General'}
                   </div>
                 )
               }
 
               return (
-                <div key={item.uuid} className="mt-1 mb-2 ml-px flex items-center text-xl">
+                <div key={item.uuid} className="mt-1 mb-2 ml-px flex text-xl">
                   { item.statusString === 'complete' &&
                     <>
-                      <div className="h-5 w-5 mr-2 rounded-full bg-white border-2 border-gray-400">
+                      <div className="shrink-0 min-w-fit h-5 w-5 mt-1.5 mr-2 rounded-full bg-white border-2 border-gray-400">
                         <div className="-mt-1.5 text-gray-400">✔</div>
                       </div>
-                      <div className="line-through text-gray-400 bg-shadow-white">
+                      <div className="mt-x shrink-1 line-through text-gray-400 leading-snug" style={{marginTop: "1px"}}>
                         {item.title}
                       </div>
                     </>
                   }
                   { item.statusString === 'open' &&
                     <>
-                      <div className="h-5 w-5 mr-2 rounded-full bg-white border-2 border-gray-900"></div>
-                      <div className="bg-shadow-white">
+                      <div className="shrink-0 min-w-fit h-5 w-5 mt-1.5 mr-2 rounded-full bg-white border-2 border-gray-900">&nbsp;&nbsp;&nbsp;</div>
+                      <div className="shrink-1 leading-snug" style={{marginTop: "1px"}}>
                         {item.title}
                       </div>
                     </>

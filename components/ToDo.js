@@ -15,14 +15,12 @@ export default function ToDo() {
 
   return (
     <div className="pt-6 bg-pattern-dots w-full h-full">
-      <div className="mx-6 px-4 pb-6 bg-white divide-y-2 divide-gray-400 overflow-hidden" style={{maxHeight: `calc(${DISPLAY_HEIGHT}px - 10rem)`}}>
-        <div className="pt-3 mb-7 text-3xl font-bold tracking-tight bg-shadow-white">
+      <div className="mx-6 px-4 pb-6 bg-white overflow-hidden" style={{maxHeight: `calc(${DISPLAY_HEIGHT}px - 10rem)`}}>
+        <div className="pt-3 mb-7 pb-2 text-3xl font-bold tracking-tight">
           To do
           <span className="text-gray-500 font-normal"> {' '}on {' '} {today.format("dddd")}</span>
         </div>
         <ToDoByArea data={toDoData} />
-        <ToDoItems data={toDoData} />
-        <ToDoItems data={toDoData} />
         <ToDoItems data={toDoData} />
       </div>
     </div>

@@ -10,7 +10,7 @@ export default function ToDoByArea({data: data}) {
   const overflowWidth = `calc(((100vw * 0.55) - ${gapXRemSpacing}rem) / ${areaColumns})`
 
   return (
-    <div className="flex justify-between gap-x-8 py-8">
+    <div className="flex justify-between gap-x-8 pb-1">
       { data.byArea.map((area) => {
         const wholePercent = Math.trunc(area.totalToDoCompleted / area.totalToDo * 100)
 
@@ -18,10 +18,10 @@ export default function ToDoByArea({data: data}) {
           <div key={area.title} className="w-full h-12 flex border-2 border-black relative">
             <div className="absolute z-20 l-0 bg-black h-full overflow-hidden" style={{width: wholePercent + "%"}}>
               <div className="h-full w-full px-2 flex items-center justify-between bg-black text-white overflow-hidden" style={{width: overflowWidth}}>
-                <div className="h-6 whitespace-nowrap flex overflow-hidden uppercase font-bold tracking-tight">
-                  ✔ {area.title}
+                <div className="h-7 whitespace-nowrap text-xl flex overflow-hidden uppercase font-bold tracking-tight">
+                  {area.title}
                 </div>
-                <div className="h-6 whitespace-nowrap flex overflow-hidden font-bold tracking-tight">
+                <div className="h-7 whitespace-nowrap text-xl flex overflow-hidden font-bold tracking-tight">
                   <div className="mr-1 text-gray-400">
                     {wholePercent}% ·
                   </div>
@@ -32,10 +32,10 @@ export default function ToDoByArea({data: data}) {
 
             <div className="absolute z-10 l-0 bg-black h-full overflow-hidden" style={{width: "100%"}}>
               <div className="h-full w-full px-2 flex items-center justify-between bg-white text-black overflow-hidden">
-                <div className="h-6 whitespace-nowrap flex overflow-hidden uppercase font-bold tracking-tight">
-                  ✔ {area.title}
+                <div className="h-7 whitespace-nowrap text-xl flex overflow-hidden uppercase font-bold tracking-tight">
+                  {area.title}
                 </div>
-                <div className="h-6 whitespace-nowrap flex overflow-hidden font-bold tracking-tight">
+                <div className="h-7 whitespace-nowrap text-xl flex overflow-hidden font-bold tracking-tight">
                   <div className="mr-1 text-gray-500">
                     {wholePercent}% ·
                   </div>
