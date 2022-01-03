@@ -18,7 +18,9 @@ SOURCE=${ARG_2:=http://localhost:3000}
 RUNNING_CHECK="$(curl $SOURCE 1> /dev/null 2> /dev/null)"
 
 if [[ $? -ne 0 ]] ; then
-  echo "ERROR: Target ${TARGET} is not reachable. Is the server running?"
+  echo "ERROR: Target ${TARGET} is not reachable."
+  echo "       Is the server running?"
+  echo "       -> To start the server run '\$ bin/dev'"
   exit 1
 fi
 

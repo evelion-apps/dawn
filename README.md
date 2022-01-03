@@ -39,9 +39,9 @@ Dawn is currently developed in a environments:
 - Ubuntu Budgie
 - MacOS
 
-In theory, it should work in any unix environment.
+In theory, it should work in any unix environment. The steps to get started are:
 
-- Clone the repository locally
+- Clone the GitHub repository locally
 - Install the version of NodeJS specified in the `.tool-versions` file
 - Install packages `$ bin/install`
 - Start the server `$ bin/dev`
@@ -119,7 +119,7 @@ To manually generate the PDF:
 - Generate a PDF using from a command line using `$ bin/capture`
 - Open the file `captures/dawn.pdf`
 
-### reMarkable 2
+### Use on reMarkable 2
 
 Dawn is built, tested, optimized, and used daily on a standard reMarkable 2.
 
@@ -128,6 +128,7 @@ It requires no additional software or changes to reMarkable. It can be pushed to
 To automatically generate the PDF and upload to reMarkable:
 
 - Install the latest rMAPI binary ([juruen/rmapi](https://github.com/juruen/rmapi#binary)) to `bin/rmapi`
+- Start the dev server `$ bin/dev`
 - From a command line run `$ bin/rm-sync`
 
 ## License
@@ -139,7 +140,7 @@ This project is released under the `GPLv3` license. For more license details see
 Dawn uses ideas and code gathered from many projects. Thank you to the following sources:
 
 - [juruen/rmapi - rMAPI](https://github.com/juruen/rmapi#binary)
-- [lelivrescolaire/React Light Calendar](https://github.com/lelivrescolaire/react-light-calendar)
+- [lelivrescolaire/React - Light Calendar](https://github.com/lelivrescolaire/react-light-calendar)
 - [nhn/Toast UI - React Calendar](https://github.com/nhn/toast-ui.react-calendar)
 - [denniskigen/react-weather](https://github.com/denniskigen/react-weather)
 - [dwyl/quotes](https://github.com/dwyl/quotes)
@@ -155,4 +156,4 @@ Any support for the project is always appreciated!
 
 This project uses **GitHub Discussions**. Ask for help, request new features, or show what you've built with it!
 
-> ### Join [GitHub Discussions](https://github.com/evelion-apps/dawn/discussions)
+> ### Open [GitHub Discussions](https://github.com/evelion-apps/dawn/discussions)
